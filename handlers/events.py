@@ -25,7 +25,7 @@ class Task():
 
     def end_timer(self):
         if self.ended == False:
-            await bot.send_message(tel_id, f"{self.tel_id}")
+            await bot.send_message(tel_id, f"{self.tel_id} проигнориовал {self.test_text}")
 
     def start_message(self):
         await bot.send_message(self.tel_id, f"Ваша зачдача {self.test_text}\n"
@@ -34,7 +34,8 @@ class Task():
                                reply_markup= await kb_blocks_end(self.idintificatore))
 
 
-async def schulded():
+
+async def append_to_list():
     while True:
         tasks = get_sheet()
         for task in tasks:
@@ -49,4 +50,5 @@ async def start_work():
             delay = task.time_to_do
             timer = threading.Timer(delay, task.end_timer)
             timer.start()
+        list_Tasks.clear()
         await asyncio.sleep(60)

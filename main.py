@@ -3,7 +3,6 @@ from create_bot import dp
 from handlers import client
 import asyncio
 from handlers.events import schulded, start_work
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 
 async def on_startup(_):
